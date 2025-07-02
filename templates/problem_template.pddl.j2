@@ -1,0 +1,15 @@
+(define (problem move-robot)
+  (:domain {{ domain }})
+  (:objects
+    {{ robot }} - robot
+    {{ start }} {{ goal }} - room
+  )
+  (:init
+    (at {{ robot }} {{ start }})
+    (connected {{ start }} {{ goal }})
+    (connected {{ goal }} {{ start }})
+  )
+  (:goal
+    (at {{ robot }} {{ goal }})
+  )
+)

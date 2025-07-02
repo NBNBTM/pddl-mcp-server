@@ -1,0 +1,11 @@
+{
+    "domain_path": "templates/domain.pddl",
+    "problem_path": "output/pddl/problem2.pddl",
+    "output_dir": "output/plan",
+    "robot": "r1",
+    "start": "room2",
+    "goal": "room1",
+    "domain": "delivery",
+    "description": "Robot r1 moves from room2 to room1"
+  }
+  
