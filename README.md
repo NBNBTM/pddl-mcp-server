@@ -1,75 +1,66 @@
 # PDDL MCP Server
 
-基于 FastMCP 框架的 PDDL 规划服务器，提供自然语言到 PDDL 规划的转换和执行功能。
+A PDDL planning server based on the FastMCP framework, providing natural language to PDDL planning conversion, execution, and batch processing capabilities.
 
-## ✨ 特性
+## ✨ Features
 
-- 🗣️ **自然语言处理**: 支持从自然语言描述生成 PDDL 规划任务
-- 🤖 **自动问题生成**: 根据任务参数自动生成 PDDL 问题文件
-- 📦 **批量任务处理**: 支持批量运行多个任务，生成详细的执行报告
-- 🔒 **类型安全**: 使用 Pydantic 进行数据验证和类型检查
-- ⚙️ **配置验证**: 内置配置验证和系统信息获取
+- 🗣️ **Natural Language Processing**: Generate PDDL planning tasks from natural language descriptions
+- 🤖 **Automatic Problem Generation**: Create PDDL problem files based on task parameters
+- 📦 **Batch Task Processing**: Run multiple tasks in batch and generate detailed execution reports
+- 🔒 **Type Safety**: Data validation and type checking with Pydantic
+- ⚙️ **Configuration Validation**: Built-in configuration and system info checking
 
-## 🎯 功能
-
-- **generate_plan**: 从结构化任务数据生成 PDDL 规划
-- **plan_from_text**: 从自然语言描述生成规划
-- **validate_config**: 验证系统配置和环境设置
-- **get_system_info**: 获取系统状态和版本信息
-
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 pddl-mcp/
-├── core/                   # 核心模块
-├── templates/              # PDDL 模板文件
-├── tasks/                  # 任务配置文件
-├── output/                 # 输出目录
-├── config.py               # 配置管理
-├── constants.py            # 常量定义
-├── error_handler.py        # 错误处理
-├── server.py               # MCP 服务器
-├── test_server.py          # 测试套件
-├── .env                    # 环境变量
-└── requirements.txt        # 依赖包列表
+├── core/                   # Core modules
+├── templates/              # PDDL template files
+├── tasks/                  # Task configuration files
+├── output/                 # Output directory
+├── config.py               # Configuration management
+├── constants.py            # Constants
+├── error_handler.py        # Error handling
+├── server.py               # MCP server
+├── test_server.py          # Test suite
+├── .env                    # Environment variables
+└── requirements.txt        # Dependencies
 ```
 
-## ⚙️ 安装配置
+## ⚙️ Installation & Setup
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. 配置 Fast Downward
+### 2. Configure Fast Downward
 
 ```bash
-# 下载并编译 Fast Downward
 git clone https://github.com/aibasel/downward.git
 cd downward
 ./build.py
 ```
 
-### 3. 环境配置
+### 3. Environment Configuration
 
-复制 `.env.example` 到 `.env` 并配置：
+Copy `.env.example` to `.env` and set:
 
-```bash
+```
 FAST_DOWNWARD_PATH=/path/to/fast-downward.py
 PDDL_DOMAIN_PATH=./templates/domain.pddl
 ```
 
-## 🔧 MCP 客户端配置
+## 🔧 MCP Client Configuration
 
-### Claude Desktop 配置
+### Claude Desktop
 
-1. **找到配置文件**：
+1. **Find the config file:**
    - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
    - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - Linux: `~/.config/Claude/claude_desktop_config.json`
-
-2. **添加服务器配置**：
+2. **Add server config:**
 ```json
 {
   "mcpServers": {
@@ -84,115 +75,220 @@ PDDL_DOMAIN_PATH=./templates/domain.pddl
   }
 }
 ```
+3. **Restart Claude Desktop**
 
-3. **重启 Claude Desktop** 使配置生效
+### Trae AI IDE
 
-### Trae AI IDE 配置
-
-1. **打开 MCP 设置**：
-   - 点击设置图标 → MCP Servers
-   - 或使用快捷键 `Ctrl+Shift+M`
-
-2. **添加新服务器**：
+1. **Open MCP Settings:**
+   - Click settings → MCP Servers
+   - Or use shortcut `Ctrl+Shift+M`
+2. **Add new server:**
 ```json
 {
   "name": "PDDL Planner",
   "command": "python",
   "args": ["d:/PDDL/pddl-mcp/server.py"],
   "cwd": "d:/PDDL/pddl-mcp",
-  "description": "PDDL规划和自然语言处理服务器"
+  "description": "PDDL planning and NLP server"
 }
 ```
+3. **Test Connection**
 
-3. **测试连接**：点击 "Test Connection" 验证配置
+## 🚀 Running & Usage
 
-## 🚀 启动和使用
-
-### 启动服务器
+### Start the Server
 
 ```bash
 python server.py
 ```
 
-成功启动后会看到：
+You should see:
 ```
 ✅ PDDL MCP Server initialized
 🚀 Starting FastMCP server...
 ```
 
-### 测试
+### Run Tests
 
 ```bash
-# 运行测试套件
 python test_server.py
 ```
 
-## 💬 提示词示例
+### Batch Task Processing
 
-### 基础规划任务
-
-**提示词**：
-```
-请帮我规划一个机器人任务：
-- 机器人：robot1
-- 起始位置：room1
-- 目标位置：room3
-- 任务类型：delivery
-
-请生成完整的PDDL规划方案。
+```bash
+python core/batch_runner.py
 ```
 
-### 自然语言规划
+## 💬 Prompt Examples
 
-**提示词**：
+### Basic Planning Task
+
 ```
-机器人r2需要从仓库移动到办公室，请帮我生成一个完整的移动计划。
+Please plan a robot task:
+- Robot: robot1
+- Start: room1
+- Goal: room3
+- Task type: delivery
+
+Generate a complete PDDL plan.
 ```
 
-**复杂任务提示词**：
+### Natural Language Planning
+
 ```
-我有一个多机器人协调任务：
-1. 机器人r1在room1，需要到room5
-2. 机器人r2在room3，需要到room2
-请为每个机器人生成独立的规划方案，并分析可能的路径冲突。
+Robot r2 needs to move from the warehouse to the office. Please generate a complete movement plan.
 ```
 
-### 批量任务处理
+### Multi-Robot Coordination
 
-**提示词**：
 ```
-请帮我批量处理以下机器人任务：
+I have a multi-robot coordination task:
+1. Robot r1 in room1, needs to go to room5
+2. Robot r2 in room3, needs to go to room2
+Please generate an individual plan for each robot and analyze possible path conflicts.
+```
+
+### Batch Task Processing
+
+```
+Please batch process the following robot tasks:
 1. r1: room1 → room3 (delivery)
 2. r2: room2 → room4 (patrol)
 3. r3: room5 → room1 (maintenance)
 
-生成批量执行报告，包括每个任务的执行时间和成功率。
+Generate a batch execution report including execution time and success rate for each task.
 ```
 
-### 系统配置和诊断
+### System Configuration & Diagnostics
 
-**配置检查提示词**：
 ```
-请检查PDDL规划系统的配置状态，包括：
-- Fast Downward路径配置
-- 环境变量设置
-- 依赖包版本
-- 系统性能指标
-```
-
-**故障诊断提示词**：
-```
-我的PDDL规划任务失败了，错误信息是：[具体错误信息]
-请帮我诊断问题并提供解决方案。
+Check the configuration status of the PDDL planning system, including:
+- Fast Downward path
+- Environment variables
+- Dependency versions
+- System performance
 ```
 
-### 可用工具
+```
+My PDDL planning task failed with error: [error message]
+Please diagnose the problem and provide a solution.
+```
 
-- **generate_plan(task)**: 从结构化任务数据生成 PDDL 规划
-- **plan_from_text(text)**: 从自然语言描述生成规划
-- **validate_config()**: 验证系统配置和环境设置
-- **get_system_info()**: 获取系统状态和版本信息
+## 🧪 Testing Guide
 
-## 📄 许可证
+### Prerequisites
+- Python 3.8+
+- Dependencies installed (`pip install -r requirements.txt`)
+- `.env` configured
+- Trae IDE imported project
+
+### Server Status
+- MCP server should show as connected in Trae IDE
+
+### Testing Methods
+
+#### 1. Trae IDE Direct Test
+- System config check
+- Simple planning task
+- Natural language planning
+- Multi-robot coordination
+- Batch task processing
+
+#### 2. Command Line
+- Start server: `python server.py`
+- Run test suite: `python test_server.py`
+- Batch tasks: `python core/batch_runner.py`
+
+### Expected Results
+- System config check returns JSON with config path, Fast Downward path, env status, output dir
+- Planning tasks generate:
+  - PDDL problem files (`output/pddl/`)
+  - Plan files (`output/plan/`)
+  - Explanation files (`output/explanation/`)
+- Batch tasks generate:
+  - Batch report (`output/report.json`)
+  - Analysis (`output/report.md`)
+  - Individual task files
+
+### Common Test Scenarios
+- Basic move task: single robot, simple path, expect 1-3 steps
+- Complex path: robot passes multiple rooms, expect optimal path
+- Multi-robot coordination: possible path conflicts, expect conflict analysis and solution
+- Error handling: invalid task params, expect clear error message
+
+### Troubleshooting
+- **Server fails to start:**
+  1. Check dependencies: `pip install -r requirements.txt`
+  2. Check Python version: `python --version`
+  3. Check `.env` config
+- **Planning fails:**
+  1. Validate Fast Downward path
+  2. Check `templates/domain.pddl`
+  3. Check output directory permissions
+- **MCP connection fails:**
+  1. Restart Trae IDE
+  2. Check `.mcp.json` config
+  3. Ensure server port is free
+- **Files not generated:**
+  1. Check `output/` directory permissions
+  2. Ensure enough disk space
+  3. Validate file paths
+
+### Performance Testing
+- **Response time:** Simple task < 2s (run multiple times)
+- **Concurrency:** Multiple tasks at once, expect no conflict
+- **Large-scale tasks:** 10+ robots, expect successful coordination
+
+### Test Checklist
+- [ ] System config check
+- [ ] Simple planning task
+- [ ] Natural language processing
+- [ ] File generation
+- [ ] Multi-robot coordination
+- [ ] Batch task processing
+- [ ] Path conflict analysis
+- [ ] Error handling
+- [ ] Response time
+- [ ] Concurrency
+- [ ] Large-scale tasks
+- [ ] Memory usage
+- [ ] Trae IDE integration
+- [ ] MCP protocol compatibility
+- [ ] File system operations
+- [ ] Config management
+
+### Test Report Template
+
+```
+Test Date: [date]
+Environment: [OS, Python version]
+Scope: [modules tested]
+
+Results:
+✅ Passed
+❌ Failed
+⚠️  Issues
+
+Performance:
+- Avg response time: [time]
+- Success rate: [percent]
+- Resource usage: [memory, CPU]
+
+Suggestions:
+[improvements]
+```
+
+### Next Steps
+- Expand test cases for more complex scenarios
+- Optimize performance based on results
+- Add new planning algorithms or features
+- Improve documentation and API reference
+
+---
+
+**Note:** For issues during testing, check logs in the `output/` directory or run `python test_server.py` for diagnostics.
+
+## 📄 License
 
 MIT License
