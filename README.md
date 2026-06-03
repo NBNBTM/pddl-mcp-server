@@ -92,6 +92,8 @@ pddl-mcp/
 ├── docs/
 │   ├── assets/
 │   └── releases/
+├── examples/
+│   └── mcp_client_quickstart.py
 ├── src/pddl_mcp/
 │   ├── config.py
 │   ├── knowledge.py
