@@ -1,19 +1,16 @@
 {
-  "title": "PDDL Planner (FastMCP)",
-  "description": "A comprehensive MCP server for PDDL-based automated planning and robot task generation using FastMCP framework.",
-  "version": "2.0.0",
+  "title": "PDDL Planner",
+  "description": "MCP server for natural-language-to-PDDL modeling and Fast Downward planning.",
+  "version": "4.0.0",
   "entrypoint": "server.py",
-  "dependencies": ["fastmcp", "jinja2", "python-dotenv", "pydantic"],
-  "author": "PDDL MCP Team",
-  "license": "MIT",
-  "capabilities": [
-    "generate_plan",
-    "plan_from_text", 
-    "validate_config",
-    "get_system_info"
-  ],
-  "framework": "FastMCP",
-  "original_version": "1.0.0",
-  "migration_notes": "Migrated from traditional MCP to FastMCP for improved developer experience and simplified code structure. All hardcoded values have been moved to constants.py for better maintainability.",
-  "optimization_notes": "Project has been fully optimized with configuration management, constant definitions, and modular architecture."
+  "python_version": ">=3.10",
+  "dependencies": ["pddl-mcp"],
+  "capabilities": ["plan_from_text", "generate_plan", "validate_config", "get_system_info"],
+  "mcpServers": {
+    "pddl-planner": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "."
+    }
+  }
 }
