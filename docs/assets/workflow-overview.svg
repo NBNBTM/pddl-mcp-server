@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">PDDL MCP workflow</title>
+  <desc id="desc">The runtime workflow from request to semantic parsing, template matching, PDDL modeling, planning, validation, and response artifacts.</desc>
+  <rect width="1200" height="560" fill="#f7faf9"/>
+  <text x="64" y="72" fill="#14212b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="760">Runtime Workflow</text>
+  <text x="64" y="108" fill="#58717b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">A modular pipeline designed for reliable planning even when the LLM is unavailable.</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="64" y="160" width="170" height="98" rx="12" fill="#ffffff" stroke="#c9d7da"/>
+    <text x="88" y="199" font-size="17" font-weight="700" fill="#132431">Request</text>
+    <text x="88" y="228" font-size="14" fill="#60737b">text or PDDL paths</text>
+    <rect x="286" y="160" width="170" height="98" rx="12" fill="#ffffff" stroke="#c9d7da"/>
+    <text x="310" y="199" font-size="17" font-weight="700" fill="#132431">Semantic</text>
+    <text x="310" y="228" font-size="14" fill="#60737b">LLM plus fallback</text>
+    <rect x="508" y="160" width="170" height="98" rx="12" fill="#ffffff" stroke="#c9d7da"/>
+    <text x="532" y="199" font-size="17" font-weight="700" fill="#132431">Knowledge</text>
+    <text x="532" y="228" font-size="14" fill="#60737b">domain templates</text>
+    <rect x="730" y="160" width="170" height="98" rx="12" fill="#ffffff" stroke="#c9d7da"/>
+    <text x="754" y="199" font-size="17" font-weight="700" fill="#132431">Modeling</text>
+    <text x="754" y="228" font-size="14" fill="#60737b">domain/problem PDDL</text>
+    <rect x="952" y="160" width="170" height="98" rx="12" fill="#ffffff" stroke="#c9d7da"/>
+    <text x="976" y="199" font-size="17" font-weight="700" fill="#132431">Planner</text>
+    <text x="976" y="228" font-size="14" fill="#60737b">Fast Downward</text>
+  </g>
+  <g stroke="#287c86" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M242 209 H276"/>
+    <path d="M266 199 L276 209 L266 219"/>
+    <path d="M464 209 H498"/>
+    <path d="M488 199 L498 209 L488 219"/>
+    <path d="M686 209 H720"/>
+    <path d="M710 199 L720 209 L710 219"/>
+    <path d="M908 209 H942"/>
+    <path d="M932 199 L942 209 L932 219"/>
+  </g>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="196" y="338" width="230" height="96" rx="12" fill="#edf7f5" stroke="#83c5be"/>
+    <text x="224" y="376" font-size="17" font-weight="700" fill="#132431">Validation</text>
+    <text x="224" y="405" font-size="14" fill="#60737b">declared actions and result shape</text>
+    <rect x="486" y="338" width="230" height="96" rx="12" fill="#fff8dd" stroke="#e9c46a"/>
+    <text x="514" y="376" font-size="17" font-weight="700" fill="#132431">Artifacts</text>
+    <text x="514" y="405" font-size="14" fill="#60737b">domain, problem, plan, log, JSON</text>
+    <rect x="776" y="338" width="230" height="96" rx="12" fill="#f1f4fb" stroke="#9ab1d6"/>
+    <text x="804" y="376" font-size="17" font-weight="700" fill="#132431">MCP Response</text>
+    <text x="804" y="405" font-size="14" fill="#60737b">success, plan, warnings, error</text>
+  </g>
+  <g stroke="#7b8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1037 258 C1037 318, 891 318, 891 338"/>
+    <path d="M881 327 L891 338 L901 327"/>
+    <path d="M776 386 H727"/>
+    <path d="M737 376 L727 386 L737 396"/>
+    <path d="M486 386 H436"/>
+    <path d="M446 376 L436 386 L446 396"/>
+  </g>
+  <rect x="64" y="482" width="1058" height="44" rx="10" fill="#14212b"/>
+  <text x="88" y="510" fill="#e8f6f4" font-family="SFMono-Regular, Consolas, monospace" font-size="16">config - semantic - knowledge - modeling - planner - validation - workflow - server</text>
+</svg>

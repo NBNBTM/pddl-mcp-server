@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Farmer river crossing run result</title>
+  <desc id="desc">Example run output for the farmer, wolf, goat, and cabbage river crossing planning problem.</desc>
+  <rect width="1200" height="720" fill="#101820"/>
+  <rect x="56" y="48" width="1088" height="624" rx="16" fill="#172532" stroke="#385060"/>
+  <rect x="56" y="48" width="1088" height="52" rx="16" fill="#223746"/>
+  <circle cx="90" cy="74" r="8" fill="#ff5f57"/>
+  <circle cx="116" cy="74" r="8" fill="#ffbd2e"/>
+  <circle cx="142" cy="74" r="8" fill="#28c840"/>
+  <text x="176" y="81" fill="#d8edf0" font-family="SFMono-Regular, Consolas, monospace" font-size="17">pddl-mcp demo: farmer-river-demo-clean-final</text>
+  <text x="86" y="145" fill="#8bd3dd" font-family="SFMono-Regular, Consolas, monospace" font-size="18">Input</text>
+  <text x="86" y="178" fill="#e7f2f4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">A farmer must take a wolf, a goat, and a cabbage across a river.</text>
+  <text x="86" y="226" fill="#8bd3dd" font-family="SFMono-Regular, Consolas, monospace" font-size="18">Workflow</text>
+  <g font-family="SFMono-Regular, Consolas, monospace" font-size="17">
+    <text x="86" y="262" fill="#dff8f6">semantic   success   36.90s</text>
+    <text x="86" y="292" fill="#dff8f6">knowledge  success    0.00s   template: Farmer Crossing Planning</text>
+    <text x="86" y="322" fill="#dff8f6">modeling   success    0.00s   generated domain.pddl and problem.pddl</text>
+    <text x="86" y="352" fill="#dff8f6">planning   success    0.14s   Fast Downward found a solution</text>
+    <text x="86" y="382" fill="#dff8f6">validation success    0.00s   7 valid declared actions</text>
+  </g>
+  <text x="86" y="434" fill="#f4d35e" font-family="SFMono-Regular, Consolas, monospace" font-size="18">Plan</text>
+  <g font-family="SFMono-Regular, Consolas, monospace" font-size="18">
+    <text x="86" y="472" fill="#ffffff">1. cross-with goat left right</text>
+    <text x="86" y="502" fill="#ffffff">2. cross-alone right left</text>
+    <text x="86" y="532" fill="#ffffff">3. cross-with cabbage left right</text>
+    <text x="86" y="562" fill="#ffffff">4. cross-with goat right left</text>
+    <text x="86" y="592" fill="#ffffff">5. cross-with wolf left right</text>
+    <text x="86" y="622" fill="#ffffff">6. cross-alone right left</text>
+    <text x="86" y="652" fill="#ffffff">7. cross-with goat left right</text>
+  </g>
+  <rect x="730" y="420" width="330" height="68" rx="12" fill="#263b2f" stroke="#9ac99a"/>
+  <text x="756" y="448" fill="#d9f7d9" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Result</text>
+  <text x="756" y="474" fill="#d9f7d9" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">success=true, warnings=[]</text>
+  <rect x="730" y="522" width="330" height="68" rx="12" fill="#2e2a1b" stroke="#f4d35e"/>
+  <text x="756" y="550" fill="#fff3c4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Planner</text>
+  <text x="756" y="576" fill="#fff3c4" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">plan length=7, cost=7</text>
+</svg>

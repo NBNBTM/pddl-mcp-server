@@ -9,7 +9,7 @@ description = "MCP server for PDDL generation and Fast Downward planning."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "PDDL MCP Team" }]
+authors = [{ name = "NBNBTM" }]
 dependencies = [
   "requests>=2.31.0",
   "python-dotenv>=1.0.0",
