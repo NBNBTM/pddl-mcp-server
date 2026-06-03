@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PDDL MCP Server</title>
+    <meta name="description" content="Natural-language-to-PDDL planning with Fast Downward and MCP tools.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="https://github.com/NBNBTM/pddl-mcp-server">PDDL MCP Server</a>
+        <div class="nav-links">
+          <a href="#quickstart">Quick Start</a>
+          <a href="#demo">Demo</a>
+          <a href="#tools">MCP Tools</a>
+          <a href="https://github.com/NBNBTM/pddl-mcp-server/releases/tag/v4.0.0">Release</a>
+        </div>
+      </nav>
+      <section class="hero-grid">
+        <div>
+          <p class="eyebrow">MCP backend for automated planning</p>
+          <h1>Natural language to validated PDDL plans.</h1>
+          <p class="lead">
+            Convert planning requests into PDDL, run Fast Downward, validate the plan, and return artifacts through a stable MCP interface.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/NBNBTM/pddl-mcp-server">View on GitHub</a>
+            <a class="button secondary" href="#quickstart">Get started</a>
+          </div>
+        </div>
+        <img class="hero-art" src="assets/social-preview.png" alt="PDDL MCP Server workflow preview">
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="quickstart">
+        <div class="section-copy">
+          <p class="eyebrow">Quick Start</p>
+          <h2>Install locally and run the MCP server.</h2>
+          <p>Use editable install for development, then configure Fast Downward and optional LLM credentials through local environment variables.</p>
+        </div>
+        <pre><code>git clone https://github.com/NBNBTM/pddl-mcp-server.git
+cd pddl-mcp-server
+python -m pip install -e ".[dev]"
+cp .env.example .env
+python server.py</code></pre>
+      </section>
+
+      <section class="section split" id="demo">
+        <div>
+          <p class="eyebrow">Demo</p>
+          <h2>Farmer river crossing in 7 valid steps.</h2>
+          <p>The workflow recognizes the domain, generates PDDL, calls Fast Downward, and returns a validated action sequence.</p>
+          <pre><code>(cross-with goat left right)
+(cross-alone right left)
+(cross-with cabbage left right)
+(cross-with goat right left)
+(cross-with wolf left right)
+(cross-alone right left)
+(cross-with goat left right)</code></pre>
+        </div>
+        <img class="demo-gif" src="assets/pddl-mcp-demo.gif" alt="Animated PDDL MCP demo">
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Architecture</p>
+        <h2>Small modules, predictable pipeline.</h2>
+        <div class="cards">
+          <article><h3>Semantic</h3><p>LLM parsing when configured, deterministic fallback when unavailable.</p></article>
+          <article><h3>Knowledge</h3><p>Domain template matching from curated planning knowledge.</p></article>
+          <article><h3>Modeling</h3><p>Domain and problem PDDL generation with saved artifacts.</p></article>
+          <article><h3>Planning</h3><p>Fast Downward command execution, log capture, and plan parsing.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="tools">
+        <div class="section-copy">
+          <p class="eyebrow">MCP Tools</p>
+          <h2>Stable interfaces for agents and clients.</h2>
+        </div>
+        <div class="tool-list">
+          <code>plan_from_text(text, options)</code>
+          <code>generate_plan(task)</code>
+          <code>validate_config()</code>
+          <code>get_system_info()</code>
+        </div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <p class="eyebrow">Configuration</p>
+          <h2>Real planner execution, optional LLM parsing.</h2>
+          <p>Secrets stay in local `.env` files or deployment secrets. Generated output and local planner builds are ignored by Git.</p>
+        </div>
+        <pre><code>FAST_DOWNWARD_PATH=/absolute/path/to/fast-downward.py
+FAST_DOWNWARD_SEARCH=astar(blind())
+LLM_API_URL=https://your-endpoint.example/chat
+LLM_API_KEY=...
+LLM_MODEL=qwen-max</code></pre>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Built by Lindsey Yang.</span>
+      <a href="https://github.com/NBNBTM/pddl-mcp-server">GitHub</a>
+      <a href="https://github.com/NBNBTM/pddl-mcp-server/releases/tag/v4.0.0">v4.0.0</a>
+    </footer>
+  </body>
+</html>

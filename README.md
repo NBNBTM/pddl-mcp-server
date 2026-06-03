@@ -1,6 +1,14 @@
 # PDDL MCP Server
 
 <p align="center">
+  <a href="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/ci.yml"><img src="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml"><img src="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+  <a href="https://github.com/NBNBTM/pddl-mcp-server/releases"><img src="https://img.shields.io/github/v/release/NBNBTM/pddl-mcp-server?label=release" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/NBNBTM/pddl-mcp-server" alt="License"></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB" alt="Python 3.10+">
+</p>
+
+<p align="center">
   <img src="docs/assets/pddl-mcp-hero.svg" alt="PDDL MCP Server overview" width="100%">
 </p>
 
@@ -21,6 +29,12 @@ It is designed as a clean single-version planning service: understand the task, 
 ## Demo
 
 The project can solve the classic farmer, wolf, goat, and cabbage river-crossing puzzle.
+
+<p align="center">
+  <img src="docs/assets/pddl-mcp-demo.gif" alt="Animated PDDL MCP river crossing demo" width="100%">
+</p>
+
+The animation shows the end-to-end flow: natural-language input, semantic processing, template matching, PDDL generation, Fast Downward planning, and validated plan output.
 
 <p align="center">
   <img src="docs/assets/river-crossing-result.svg" alt="Farmer river crossing demo result" width="100%">
@@ -304,6 +318,10 @@ If `FAST_DOWNWARD_PATH` is not configured, real planner execution reports a clea
 The current release draft is available at:
 
 - [docs/releases/v4.0.0.md](docs/releases/v4.0.0.md)
+
+The project documentation site is available at:
+
+- [https://nbnbtm.github.io/pddl-mcp-server/](https://nbnbtm.github.io/pddl-mcp-server/)
 
 ## Security Notes
 
