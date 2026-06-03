@@ -296,6 +296,18 @@ The repository includes `.mcp.json`:
 
 For desktop MCP clients, use the absolute project path in `cwd` if relative paths are not supported by your client.
 
+For a minimal Python client that launches this server over stdio and calls `plan_from_text`, see:
+
+- [examples/mcp_client_quickstart.py](examples/mcp_client_quickstart.py)
+
+Run it from the repository root after installing dependencies:
+
+```bash
+python examples/mcp_client_quickstart.py
+```
+
+The example prints the key response fields from `plan_from_text`: `success`, `plan_content`, `artifacts`, `warnings`, and `error`. It uses the checked-in `server.py` entrypoint and does not require committing any secrets.
+
 ## Testing
 
 ```bash
