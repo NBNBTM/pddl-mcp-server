@@ -323,6 +323,15 @@ The project documentation site is available at:
 
 - [https://nbnbtm.github.io/pddl-mcp-server/](https://nbnbtm.github.io/pddl-mcp-server/)
 
+## Docker Setup
+
+```bash
+docker build -t pddl-mcp-server .
+docker run --rm -e OPENAI_API_KEY="$OPENAI_API_KEY" pddl-mcp-server
+```
+
+The Docker image installs all system dependencies including Fast Downward. No API keys are baked into the image — pass them at runtime via `-e` flags.
+
 ## Security Notes
 
 - Do not commit `.env`, API keys, model tokens, or private planner outputs.
