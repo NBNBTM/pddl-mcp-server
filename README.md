@@ -16,6 +16,12 @@ PDDL MCP Server is a personal MCP backend project for turning natural-language p
 
 It is designed as a clean single-version planning service: understand the task, match domain knowledge, generate PDDL, run a planner, validate the result, and return a structured MCP response with artifacts.
 
+## Project Context and Contribution
+
+This project grew from an automated-planning task I worked on during an algorithm engineering internship at HuaYuan Computing. I developed and consolidated the public project into a single MCP planning service, including the natural-language/PDDL workflow, Fast Downward integration and debugging, domain templates, stable tool responses, artifact handling, validation, modular `src` package structure, tests, CI, security guidance, release documentation, and demo assets.
+
+This repository is a personal, public-safe engineering portfolio project. It contains reusable planning code, examples, and documentation only; it does not include employer credentials, private services, internal data, or an endorsement by HuaYuan Computing.
+
 ## Highlights
 
 - Natural language to PDDL workflow through `plan_from_text`.
