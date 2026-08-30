@@ -18,9 +18,9 @@ It is designed as a clean single-version planning service: understand the task, 
 
 ## Project Context and Contribution
 
-This project grew from an automated-planning task I worked on during an algorithm engineering internship at UniDT Co., Ltd. I developed and consolidated the public project into a single MCP planning service, including the natural-language/PDDL workflow, Fast Downward integration and debugging, domain templates, stable tool responses, artifact handling, validation, modular `src` package structure, tests, CI, security guidance, release documentation, and demo assets.
+I designed and implemented this repository independently from start to finish, including the natural-language/PDDL workflow, Fast Downward integration and debugging, domain templates, stable tool responses, artifact handling, validation, modular `src` package structure, tests, CI, security guidance, release documentation, and demo assets.
 
-This repository is a personal, public-safe engineering portfolio project. It contains reusable planning code, examples, and documentation only; it does not include employer credentials, private services, internal data, or an endorsement by UniDT Co., Ltd.
+My algorithm engineering internship at UniDT Co., Ltd. is relevant professional context for my interest in automated planning, but this repository is my independently developed personal project. It is not company code, does not require or imply company authorization, and does not contain employer credentials, private services, internal data, or an endorsement by UniDT Co., Ltd.
 
 ## Highlights
 
@@ -338,4 +338,4 @@ The project documentation site is available at:
 
 ## License
 
-This project is released under the MIT License.
+Copyright (c) 2024 Lindsey Yang. This independently developed project is released by its copyright holder under the [MIT License](LICENSE).
