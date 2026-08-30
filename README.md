@@ -338,4 +338,4 @@ The project documentation site is available at:
 
 ## License
 
-Copyright (c) 2024 Lindsey Yang. This independently developed project is released by its copyright holder under the [MIT License](LICENSE).
+Copyright (c) 2024 Lindsey Yang. This independently developed project is released by its copyright holder under the [MIT License](LICENSE). See the [copyright and source notice](NOTICE.md) for the provenance boundary of the included planning-domain metadata.
