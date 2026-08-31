@@ -75,7 +75,7 @@ The image will not embed API keys or copy the local Fast Downward checkout. A lo
 The active branch ruleset will target `~DEFAULT_BRANCH`, not `~ALL`. It will require:
 
 - changes through a pull request;
-- successful checks for `test (3.10)`, `test (3.11)`, `test (3.12)`, `test (3.13)`, `test (3.14)`, and `Analyze Python`;
+- successful checks for `test (3.10)`, `test (3.11)`, `test (3.12)`, `test (3.13)`, `test (3.14)`, `docker`, and `Analyze Python`;
 - the branch to be up to date with the default branch;
 - resolution of review conversations;
 - signed commits on the protected branch; and
@@ -126,7 +126,7 @@ The existing `v4.0.0` tag and release remain immutable historical references. No
 - Local tests, Ruff, and compile checks pass.
 - The configuration policy test passes and detects a deliberately unpinned action during its red phase.
 - The Docker image builds successfully when Docker is available, or the unavailable runtime is explicitly reported with static validation passing.
-- The maintenance PR's five Python checks and CodeQL check pass.
+- The maintenance PR's five Python checks, Docker check, and CodeQL check pass.
 - The default-branch ruleset requires those checks and applies only to `main`.
 - GitHub Actions allows GitHub-owned actions only and requires full SHA references.
 - Pages returns HTTP 200 over HTTPS and the custom social preview remains enabled.
