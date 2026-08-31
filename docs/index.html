@@ -14,6 +14,7 @@
         <div class="nav-links">
           <a href="#quickstart">Quick Start</a>
           <a href="#demo">Demo</a>
+          <a href="#docker">Docker</a>
           <a href="#tools">MCP Tools</a>
           <a href="https://github.com/NBNBTM/pddl-mcp-server/releases/tag/v4.0.1">Release</a>
         </div>
@@ -45,7 +46,23 @@
 cd pddl-mcp-server
 python -m pip install -e ".[dev]"
 cp .env.example .env
-python server.py</code></pre>
+python server.py
+
+# In another shell, run the example MCP client:
+python examples/mcp_client_quickstart.py</code></pre>
+      </section>
+
+      <section class="section split" id="docker">
+        <div>
+          <p class="eyebrow">Docker</p>
+          <h2>Server and pinned planner in one image.</h2>
+          <p>The image builds a fixed Fast Downward revision, configures the planner path, and keeps credentials outside the image. Runtime artifacts can be stored in a named volume.</p>
+        </div>
+        <pre><code>docker build -t pddl-mcp-server:4.0.1 .
+
+docker run --rm -i \
+  --mount type=volume,source=pddl-mcp-output,target=/app/output \
+  pddl-mcp-server:4.0.1</code></pre>
       </section>
 
       <section class="section split" id="demo">
@@ -92,7 +109,7 @@ python server.py</code></pre>
         <div>
           <p class="eyebrow">Configuration</p>
           <h2>Real planner execution, optional LLM parsing.</h2>
-          <p>Secrets stay in local `.env` files or deployment secrets. Generated output and local planner builds are ignored by Git.</p>
+          <p>Secrets stay in local <code>.env</code> files or deployment secrets. Generated output and local planner builds are ignored by Git and excluded from the Docker build context.</p>
         </div>
         <pre><code>FAST_DOWNWARD_PATH=/absolute/path/to/fast-downward.py
 FAST_DOWNWARD_SEARCH=astar(blind())

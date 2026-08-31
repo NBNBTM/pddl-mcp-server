@@ -5,7 +5,7 @@
   <a href="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml"><img src="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
   <a href="https://github.com/NBNBTM/pddl-mcp-server/releases"><img src="https://img.shields.io/github/v/release/NBNBTM/pddl-mcp-server?label=release" alt="Latest release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/NBNBTM/pddl-mcp-server" alt="License"></a>
-  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/python-3.10--3.14-3776AB" alt="Python 3.10 through 3.14">
 </p>
 
 <p align="center">
@@ -92,12 +92,19 @@ The code is intentionally split into focused modules:
 
 ```text
 pddl-mcp/
+├── .github/CODEOWNERS
+├── .dockerignore
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── Dockerfile
 ├── pyproject.toml
 ├── server.py
 ├── .mcp.json
 ├── docs/
 │   ├── assets/
 │   └── releases/
+├── examples/
+│   └── mcp_client_quickstart.py
 ├── src/pddl_mcp/
 │   ├── config.py
 │   ├── knowledge.py
@@ -335,7 +342,7 @@ Pass a different natural-language request with `--text`. The client lists the av
 ## Testing
 
 ```bash
-python -m compileall -q src tests server.py
+python -m compileall -q src tests examples server.py
 python -m pytest -q -p no:cacheprovider
 python -m ruff check . --no-cache
 ```
@@ -343,7 +350,7 @@ python -m ruff check . --no-cache
 Expected local result:
 
 ```text
-13 passed
+19 passed
 All checks passed
 ```
 
@@ -351,9 +358,9 @@ If `FAST_DOWNWARD_PATH` is not configured, real planner execution reports a clea
 
 ## Release Notes
 
-The current release draft is available at:
+The current release notes are available at:
 
-- [docs/releases/v4.0.0.md](docs/releases/v4.0.0.md)
+- [docs/releases/v4.0.1.md](docs/releases/v4.0.1.md)
 
 The project documentation site is available at:
 
