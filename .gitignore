@@ -15,6 +15,7 @@ dist/
 *.log
 output/
 outputs/
+reports/
 sas_plan*
 .tools/
 
