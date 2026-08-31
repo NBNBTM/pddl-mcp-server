@@ -5,7 +5,7 @@
   <a href="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml"><img src="https://github.com/NBNBTM/pddl-mcp-server/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
   <a href="https://github.com/NBNBTM/pddl-mcp-server/releases"><img src="https://img.shields.io/github/v/release/NBNBTM/pddl-mcp-server?label=release" alt="Latest release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/NBNBTM/pddl-mcp-server" alt="License"></a>
-  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/python-3.10--3.14-3776AB" alt="Python 3.10 through 3.14">
 </p>
 
 <p align="center">
@@ -92,12 +92,19 @@ The code is intentionally split into focused modules:
 
 ```text
 pddl-mcp/
+├── .github/CODEOWNERS
+├── .dockerignore
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── Dockerfile
 ├── pyproject.toml
 ├── server.py
 ├── .mcp.json
 ├── docs/
 │   ├── assets/
 │   └── releases/
+├── examples/
+│   └── mcp_client_quickstart.py
 ├── src/pddl_mcp/
 │   ├── config.py
 │   ├── knowledge.py
@@ -171,6 +178,26 @@ FAST_DOWNWARD_PATH=/absolute/path/to/pddl-mcp-server/.tools/downward/fast-downwa
 ```
 
 `.tools/` is ignored by Git, so local planner builds are not uploaded.
+
+## Docker
+
+Build the image from the repository root:
+
+```bash
+docker build -t pddl-mcp-server:4.0.1 .
+```
+
+The image compiles a pinned Fast Downward revision and sets `FAST_DOWNWARD_PATH` automatically. It runs the MCP server over stdio and does not contain API credentials or a local `.env` file.
+
+Run it interactively and keep generated artifacts in a named volume:
+
+```bash
+docker run --rm -i \
+  --mount type=volume,source=pddl-mcp-output,target=/app/output \
+  pddl-mcp-server:4.0.1
+```
+
+Optional LLM settings must be passed at runtime, for example with `--env LLM_API_URL`, `--env LLM_API_KEY`, and `--env LLM_MODEL`. Never place real credentials in the Dockerfile or image build arguments.
 
 ## Run The MCP Server
 
@@ -302,10 +329,20 @@ The repository includes `.mcp.json`:
 
 For desktop MCP clients, use the absolute project path in `cwd` if relative paths are not supported by your client.
 
+### MCP Python client quickstart
+
+After installing the project, run the included stdio client against the local server:
+
+```bash
+python examples/mcp_client_quickstart.py
+```
+
+Pass a different natural-language request with `--text`. The client lists the available tools, calls `get_system_info`, then sends the request to `plan_from_text` and prints the complete structured response.
+
 ## Testing
 
 ```bash
-python -m compileall -q src tests server.py
+python -m compileall -q src tests examples server.py
 python -m pytest -q -p no:cacheprovider
 python -m ruff check . --no-cache
 ```
@@ -313,7 +350,7 @@ python -m ruff check . --no-cache
 Expected local result:
 
 ```text
-13 passed
+19 passed
 All checks passed
 ```
 
@@ -321,9 +358,9 @@ If `FAST_DOWNWARD_PATH` is not configured, real planner execution reports a clea
 
 ## Release Notes
 
-The current release draft is available at:
+The current release notes are available at:
 
-- [docs/releases/v4.0.0.md](docs/releases/v4.0.0.md)
+- [docs/releases/v4.0.1.md](docs/releases/v4.0.1.md)
 
 The project documentation site is available at:
 

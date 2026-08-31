@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pddl-mcp"
-version = "4.0.0"
+version = "4.0.1"
 description = "MCP server for PDDL generation and Fast Downward planning."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -13,7 +13,6 @@ authors = [{ name = "Lindsey Yang" }]
 dependencies = [
   "requests>=2.31.0",
   "python-dotenv>=1.0.0",
-  "fastmcp>=0.4.1",
   "mcp>=1.0.0",
 ]
 
@@ -21,6 +20,7 @@ dependencies = [
 dev = [
   "pytest>=8.0.0",
   "ruff>=0.5.0",
+  "tomli>=2.0.1; python_version < '3.11'",
 ]
 
 [project.scripts]

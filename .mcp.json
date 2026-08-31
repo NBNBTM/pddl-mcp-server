@@ -1,7 +1,7 @@
 {
   "title": "PDDL Planner",
   "description": "MCP server for natural-language-to-PDDL modeling and Fast Downward planning.",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "entrypoint": "server.py",
   "python_version": ">=3.10",
   "dependencies": ["pddl-mcp"],
