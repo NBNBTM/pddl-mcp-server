@@ -1,8 +1,8 @@
 import json
 import re
-import tomllib
 from pathlib import Path
 
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_VERSION = "4.0.1"

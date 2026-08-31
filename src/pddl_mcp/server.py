@@ -40,7 +40,7 @@ def _create_app():
         return FastMCP(
             title="PDDL Planner",
             description="MCP server for PDDL generation and Fast Downward planning.",
-            version="4.0.0",
+            version="4.0.1",
             dependencies=["pddl-mcp"],
         )
 
@@ -74,7 +74,7 @@ def get_system_info() -> dict[str, Any]:
         "success": True,
         "server_info": {
             "name": "PDDL Planner",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "framework": "FastMCP",
             "capabilities": ["plan_from_text", "generate_plan", "validate_config", "get_system_info"],
         },
