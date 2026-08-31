@@ -55,3 +55,13 @@ def test_maintenance_files_exist() -> None:
         "examples/mcp_client_quickstart.py",
     )
     assert all((ROOT / path).is_file() for path in required)
+
+
+def test_dockerfile_embeds_a_pinned_planner_without_secrets() -> None:
+    dockerfile = (ROOT / "Dockerfile").read_text(encoding="utf-8")
+
+    assert "FROM python:3.14-slim" in dockerfile
+    assert re.search(r"ARG FAST_DOWNWARD_REF=[0-9a-f]{40}", dockerfile)
+    assert "FAST_DOWNWARD_PATH=/opt/fast-downward/fast-downward.py" in dockerfile
+    assert "COPY .env" not in dockerfile
+    assert 'CMD ["python", "server.py"]' in dockerfile

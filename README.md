@@ -172,6 +172,26 @@ FAST_DOWNWARD_PATH=/absolute/path/to/pddl-mcp-server/.tools/downward/fast-downwa
 
 `.tools/` is ignored by Git, so local planner builds are not uploaded.
 
+## Docker
+
+Build the image from the repository root:
+
+```bash
+docker build -t pddl-mcp-server:4.0.1 .
+```
+
+The image compiles a pinned Fast Downward revision and sets `FAST_DOWNWARD_PATH` automatically. It runs the MCP server over stdio and does not contain API credentials or a local `.env` file.
+
+Run it interactively and keep generated artifacts in a named volume:
+
+```bash
+docker run --rm -i \
+  --mount type=volume,source=pddl-mcp-output,target=/app/output \
+  pddl-mcp-server:4.0.1
+```
+
+Optional LLM settings must be passed at runtime, for example with `--env LLM_API_URL`, `--env LLM_API_KEY`, and `--env LLM_MODEL`. Never place real credentials in the Dockerfile or image build arguments.
+
 ## Run The MCP Server
 
 ```bash
