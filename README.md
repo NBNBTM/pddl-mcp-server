@@ -302,6 +302,16 @@ The repository includes `.mcp.json`:
 
 For desktop MCP clients, use the absolute project path in `cwd` if relative paths are not supported by your client.
 
+### MCP Python client quickstart
+
+After installing the project, run the included stdio client against the local server:
+
+```bash
+python examples/mcp_client_quickstart.py
+```
+
+Pass a different natural-language request with `--text`. The client lists the available tools, calls `get_system_info`, then sends the request to `plan_from_text` and prints the complete structured response.
+
 ## Testing
 
 ```bash
