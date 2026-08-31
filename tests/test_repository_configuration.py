@@ -2,7 +2,10 @@ import json
 import re
 from pathlib import Path
 
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:  # pragma: no cover - exercised by Python 3.10 CI
+    import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_VERSION = "4.0.1"
